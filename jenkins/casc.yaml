@@ -1,0 +1,23 @@
+jenkins:
+    securityRealm:
+        local:
+            allowsSignup: false
+            users:
+                -   id: ${JENKINS_ADMIN_ID}
+                    password: ${JENKINS_ADMIN_PASSWORD}
+
+    # specify permissions using the Matrix Authorization Strategy plugin
+    authorizationStrategy:
+        globalMatrix:
+            permissions:
+                - "Overall/Administer:admin"
+                - "Overall/Read:authenticated"
+# the user that executes the pipeline is the same as the one that started the jenkins process
+security:
+    queueItemAuthenticator:
+        authenticators:
+            -   global:
+                    strategy: triggeringUsersAuthorizationStrategy
+unclassified:
+    location:
+        url: http://127.0.0.1:8080/
