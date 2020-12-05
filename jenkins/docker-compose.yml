@@ -1,23 +1,20 @@
-version: '3'
-services: 
+version: '3.4'
+services:
     jenkins-docker:
         container_name: jenkins-docker
+        network_mode: host
         build:
           context: .
           args:
             HOST_UID: 1001
             HOST_GID: 998
-        ports: 
+        ports:
             - "8080:8080"
             - "50000:50000"
-        volumes: 
+        volumes:
             - ./jenkins_home:/var/jenkins_home
             - ./casc.yaml:/var/jenkins_home/casc.yaml
             - /var/run/docker.sock:/var/run/docker.sock
-        networks: 
-            - net
         environment:
             JENKINS_ADMIN_ID: admin
             JENKINS_ADMIN_PASSWORD: admin
-networks:
-    net:
