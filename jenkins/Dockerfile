@@ -24,6 +24,15 @@ RUN usermod -u $HOST_UID jenkins
 RUN groupmod -g $HOST_GID docker
 RUN usermod -aG docker jenkins
 
+RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main">> /etc/apt/sources.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+RUN apt-get update
+RUN apt-get install -y ansible
+
+RUN apt install -y python3 python3-pip
+RUN pip3 install ansible openshift
+RUN ansible-galaxy collection install community.kubernetes
+
 # install plugins
 # check plugins in https://updates.jenkins.io/download/plugins/
 COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
