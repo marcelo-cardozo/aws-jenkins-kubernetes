@@ -16,3 +16,6 @@ subjects:
     - kind: ServiceAccount
       name: svcs-acct-dply
       namespace: default
+    - kind: ServiceAccount
+      name: svcs-acct-dply
+      namespace: kube-system

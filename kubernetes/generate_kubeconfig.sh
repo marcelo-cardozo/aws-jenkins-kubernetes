@@ -16,5 +16,4 @@ CLUSTER_SERVER_URL=$(kubectl config view --flatten --minify -o jsonpath='{.clust
 # DOCKER_PORT=$(docker container inspect minikube | jq -r '.[0].NetworkSettings.Ports."8443/tcp" [0].HostPort')
 # CLUSTER_SERVER_URL="https://localhost:${DOCKER_PORT}"
 
-cat kubeconfig.template.yml | sed "s|{{USER_TOKEN}}|$USER_TOKEN|" | sed "s|{{CLUSTER_CERT}}|$CLUSTER_CERT|" | sed "s|{{CLUSTER_SERVER_URL}}|$CLUSTER_SERVER_URL|" > kubeconfig.yml
-
+cat kubeconfig.template.json | sed "s|{{USER_TOKEN}}|$USER_TOKEN|" | sed "s|{{CLUSTER_CERT}}|$CLUSTER_CERT|" | sed "s|{{CLUSTER_SERVER_URL}}|$CLUSTER_SERVER_URL|" > kubeconfig.json
