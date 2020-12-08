@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: node-server
+    namespace: default
+spec:
+    selector:
+        matchLabels:
+            run: node-server
+    replicas: 1
+    template:
+        metadata:
+            labels:
+                run: node-server
+        spec:
+            containers:
+                - name: node-server
+                  image: marcecardozo/node-example:latest
+                  ports:
+                      - containerPort: 3000
+                  resources:
+                      limits:
+                          cpu: 500m
+                      requests:
+                          cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+    namespace: default
+    name: node-server
+    labels:
+        run: node-server
+spec:
+    ports:
+        - port: 80
+          targetPort: 3000
+    selector:
+        run: node-server
+    type: NodePort
