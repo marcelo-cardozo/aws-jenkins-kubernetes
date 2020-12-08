@@ -7,3 +7,4 @@ minikube start
 kubectl --kubeconfig=kubeconfig.yml get all
 
 ```
+
