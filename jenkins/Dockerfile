@@ -32,6 +32,9 @@ RUN apt-get install -y ansible
 RUN apt install -y python3 python3-pip
 RUN pip3 install ansible openshift
 RUN ansible-galaxy collection install community.kubernetes
+RUN pip3 install --upgrade awscli
+RUN wget https://github.com/mikefarah/yq/releases/download/3.4.1/yq_linux_amd64 -O /usr/bin/yq
+RUN chmod +x /usr/bin/yq
 
 # install plugins
 # check plugins in https://updates.jenkins.io/download/plugins/

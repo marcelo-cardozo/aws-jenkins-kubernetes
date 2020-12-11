@@ -15,8 +15,11 @@ services:
             - ./jenkins_home:/var/jenkins_home
             - ./casc.yaml:/var/jenkins_home/casc.yaml
             - /var/run/docker.sock:/var/run/docker.sock
-            - ../kubernetes/kubeconfig.json:/.kube/kubeconfig.json
+            # - ../kubernetes/kubeconfig.json:/var/jenkins_home/.kube/kubeconfig.json
         environment:
             JENKINS_ADMIN_ID: admin
             JENKINS_ADMIN_PASSWORD: admin
-            K8S_AUTH_KUBECONFIG: /.kube/kubeconfig.json
+            K8S_AUTH_KUBECONFIG: /var/jenkins_home/.kube/kubeconfig.json
+            AWS_ACCESS_KEY_ID: X
+            AWS_SECRET_ACCESS_KEY: X
+            AWS_DEFAULT_REGION: us-east-1
