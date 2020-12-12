@@ -1,0 +1,38 @@
+[
+  {
+    "ParameterKey": "AvailabilityZones",
+    "ParameterValue": "us-east-1a, us-east-1b, us-east-1c"
+  },
+  {
+    "ParameterKey": "EKSClusterName",
+    "ParameterValue": "EKS-CheloKube"
+  },
+  {
+    "ParameterKey": "KeyPairName",
+    "ParameterValue": "taskKey"
+  },
+  {
+    "ParameterKey": "RemoteAccessCIDR",
+    "ParameterValue": "X.X.X.X/32"
+  },
+  {
+    "ParameterKey": "EKSPublicAccessEndpoint",
+    "ParameterValue": "Enabled"
+  },
+  {
+    "ParameterKey": "NodeInstanceType",
+    "ParameterValue": "t2.micro"
+  },
+  {
+    "ParameterKey": "NumberOfNodes",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "MaxNumberOfNodes",
+    "ParameterValue": "3"
+  },
+  {
+    "ParameterKey": "NumberOfAZs",
+    "ParameterValue": "3"
+  }
+]

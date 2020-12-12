@@ -1,0 +1,9 @@
+---
+- name: Deploy
+  hosts: [localhost]
+  gather_facts: false
+  tasks:
+    - name: Deploy node app to kubernetes
+      community.kubernetes.k8s:
+        state: present
+        src: node-server.yml

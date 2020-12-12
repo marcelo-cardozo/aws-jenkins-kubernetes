@@ -1,1 +1,2 @@
 aws-jenkins-kubernetes.iml
+**/**/kubeconfig.json
